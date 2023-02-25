@@ -704,6 +704,7 @@ func getBooksHandler(c echo.Context) error {
 	bookIDs := make([]string, len(books))
 	for i, book := range books {
 		bookIDs[i] = book.ID
+		res.Books[i].Book = book
 	}
 
 	sql, params, err := sqlx.In(sql, bookIDs)
